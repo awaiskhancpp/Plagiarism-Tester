@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-  "node": "20.x"
+  "node": "24.x"
   },
   "scripts": {
     "dev": "next dev",
@@ -43,7 +43,6 @@
     "swr": "^2.3.6",
     "textract": "^2.5.0",
     "string-similarity": "^4.0.4",
-    "text-similarity-node": "^1.0.1",
     "wink-eng-lite-web-model": "^1.7.0",
     "wink-nlp": "^2.3.0",
     "zod": "^3.25.64"
