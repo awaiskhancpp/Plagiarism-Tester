@@ -61,7 +61,11 @@ export default function Login() {
         );
       }
     }
+<<<<<<< HEAD
   }, [status, session, router]);
+=======
+  }, [status, session]);
+>>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
 
   useEffect(() => {
     // Check if touch device
@@ -188,8 +192,13 @@ export default function Login() {
               <option value="teacher" className="text-black">
                 Teacher
               </option>
+<<<<<<< HEAD
               <option value="developer" className="text-black">
                 Developer
+=======
+              <option value="researcher" className="text-black">
+                Researcher
+>>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
               </option>
             </select>
             <div className="absolute inset-y-0 right-0 flex items-center pr-6 pointer-events-none">

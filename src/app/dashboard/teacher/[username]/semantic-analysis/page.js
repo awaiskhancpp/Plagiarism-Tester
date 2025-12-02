@@ -82,7 +82,11 @@ export default function UploadPage() {
 
       // POST to Next API which forwards with HS256 token to FastAPI
       const res = await axios.post(
+<<<<<<< HEAD
         "/api/v1/teacher/semantic-analysis",
+=======
+        "/api/report/teacher/semantic-analysis",
+>>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
         formData,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -112,7 +116,11 @@ export default function UploadPage() {
       <div className="h-auto bg-gradient-to-r from-black to-gray-900 text-gray-300 py-44">
         <Grid height={135} />
         <div className="max-w-4xl mx-auto">
+<<<<<<< HEAD
           <h1 className="text-6xl md:text-8xl font-bold mb-6 text-center">
+=======
+          <h1 className={`${rw_bold.className} text-8xl mb-6 text-center`}>
+>>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
             Semantic{" "}
             <span className="bg-gradient-to-r from-purple-300 to-purple-700 bg-clip-text text-transparent">
               Analysis
@@ -131,7 +139,11 @@ export default function UploadPage() {
             <div
               onDragOver={(e) => e.preventDefault()}
               onDrop={handleDrop}
+<<<<<<< HEAD
               className={`border-[1px] border-dashed p-20 text-center rounded-md transition-all 
+=======
+              className={`border-[1px] border-dashed p-20 text-center rounded-2xl transition-all 
+>>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
               ${files.length ? "border-purple-500" : "border-gray-600 "} 
               ${error ? "border-red-500" : ""}`}
             >
@@ -146,7 +158,11 @@ export default function UploadPage() {
                   <p className={`${dmSans.className} text-gray-400`}>or</p>
                   <label className="cursor-pointer inline-block">
                     <span
+<<<<<<< HEAD
                       className={`${rw.className} bg-gradient-to-r from-purple-400 to-purple-700 text-white px-6 py-3 rounded-md`}
+=======
+                      className={`${rw.className} bg-gradient-to-r from-purple-400 to-purple-700 text-white px-6 py-3 rounded-lg`}
+>>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
                     >
                       Browse Files
                     </span>

@@ -36,13 +36,21 @@ export async function middleware(req) {
     // Role-based dashboard access for users WITH roles
     if (pathname.startsWith("/dashboard/")) {
       const pathRole = pathname.split("/")[2]; // Extract role from /dashboard/[role]/...
+<<<<<<< HEAD
+=======
+
+>>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
       console.log("Path role:", pathRole, "User role:", token.role);
 
       // If trying to access wrong role dashboard, redirect to correct one
       if (
         pathRole &&
         pathRole !== token.role &&
+<<<<<<< HEAD
         ["student", "teacher", "developer"].includes(pathRole)
+=======
+        ["student", "teacher", "researcher"].includes(pathRole)
+>>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
       ) {
         console.log(
           `User with role ${token.role} trying to access ${pathRole} dashboard, redirecting`

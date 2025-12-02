@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client";
 import Link from "next/link";
 import { Raleway } from "next/font/google";
@@ -23,6 +24,17 @@ export default function NotFound() {
     if (!role) return "/choose-role";
     return `/dashboard/${role}/${nameSlug}`;
   };
+=======
+import Link from "next/link";
+import { Raleway } from "next/font/google";
+
+const raleway = Raleway({
+  subsets: ["latin"],
+  weight: ["300"],
+});
+
+export default function NotFound() {
+>>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
   return (
     <div className="h-screen flex items-center justify-center bg-gradient-to-r from-black to-gray-900 ">
       <div className="text-center">
@@ -35,7 +47,11 @@ export default function NotFound() {
           Could not find requested resource.
         </p>
         <Link
+<<<<<<< HEAD
           href={getRoleRoute()}
+=======
+          href="/"
+>>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
           className={`${raleway.className} bg-gradient-to-r text-white mt-10 py-7 px-10 text-2xl to-purple-400 from-purple-800`}
         >
           Return Home

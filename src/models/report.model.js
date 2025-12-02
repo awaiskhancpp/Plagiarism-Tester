@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import mongoose from "mongoose";
 
 const MatchSchema = new mongoose.Schema({
@@ -26,10 +27,22 @@ const SummarySchema = new mongoose.Schema({
   averageSimilarity: { type: Number, required: true },
   totalMatches: { type: Number, required: true },
   averageAiSimilarity: { type: Number, default: 0 },
+=======
+// src/models/report.model.js
+
+import mongoose from "mongoose";
+
+const PlagiarismDataSchema = new mongoose.Schema({
+  similarity: { type: Number },
+  source_type: { type: String },
+  source_title: { type: String },
+  source_url: { type: String },
+>>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
 });
 
 const ReportSchema = new mongoose.Schema(
   {
+<<<<<<< HEAD
     name: { type: String, required: true },
     analysisType: { type: String, required: true },
     submittedBy: { type: String, default: "System" },
@@ -48,6 +61,45 @@ const ReportSchema = new mongoose.Schema(
     // Full analysis details
     documents: { type: [DocumentSchema], default: [] },
     summary: { type: SummarySchema, required: true },
+=======
+    user_id: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    date: {
+      type: Date,
+      default: Date.now,
+    },
+    similarity: {
+      type: Number,
+      required: true,
+    },
+    sources: [
+      {
+        type: String,
+      },
+    ],
+    word_count: {
+      type: Number,
+      required: true,
+    },
+    time_spent: {
+      type: String,
+      default: "",
+    },
+    flagged: {
+      type: Boolean,
+      default: false,
+    },
+    plagiarism_data: {
+      type: [PlagiarismDataSchema],
+      default: [],
+    },
+>>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
   },
   {
     timestamps: true,

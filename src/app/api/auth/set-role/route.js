@@ -17,7 +17,11 @@ export async function POST(req) {
     const { role } = await req.json();
     if (
       !role ||
+<<<<<<< HEAD
       !["student", "teacher", "developer"].includes(role.toLowerCase())
+=======
+      !["student", "teacher", "researcher"].includes(role.toLowerCase())
+>>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
     ) {
       return NextResponse.json({ error: "Invalid role" }, { status: 400 });
     }
