@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-// src/app/dashboard/student/report/[reportId]/page.js
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
 "use client";
 
 import { useState, useEffect, useRef } from "react";
@@ -38,97 +34,56 @@ export default function DocumentAnalysisPage() {
   const pathname = usePathname();
   const { reportId } = useParams();
 
-<<<<<<< HEAD
-=======
-  // Fetch report detail once on mount (when reportId is available)
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
   useEffect(() => {
     if (!reportId) return;
 
     const fetchDocument = async () => {
       try {
-<<<<<<< HEAD
         const data = JSON.parse(localStorage.getItem("report"));
 
         if (!data) {
           console.error("No document found in localStorage");
           return;
         }
-=======
-        const data = JSON.parse(localStorage.getItem("report")); // now a single object, not an array
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
 
         setDocument({
           name: data.name || "",
           content: data.content || "",
-<<<<<<< HEAD
           plagiarismData: Array.isArray(data.matches)
             ? data.matches.map((item) => ({
                 text: item.matched_text,
                 similarity: item.similarity,
-=======
-          plagiarismData: Array.isArray(data.plagiarism_data)
-            ? data.plagiarism_data.map((item) => ({
-                text: item.matched_text,
-                similarity: item.similarity.toFixed(2) * 100, // e.g. 0.87 → "87.00"
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
                 source: item.source_title,
                 url: item.source_url,
               }))
             : [],
-<<<<<<< HEAD
           time_spent: data.processingTime || "",
-=======
-          time_spent: data.time_spent || "",
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
           sources: Array.isArray(data.sources) ? data.sources : [],
         });
       } catch (error) {
         console.error("Failed to fetch document:", error);
-<<<<<<< HEAD
         toast.error("Failed to load report");
-=======
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
       }
     };
 
     fetchDocument();
   }, [reportId]);
 
-<<<<<<< HEAD
-=======
-  // Helper to HTML‐escape a string
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
   function escapeForHtml(str) {
     return str
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
-<<<<<<< HEAD
   }
 
-=======
-    // .replace(/'/g, "&#039;");
-  }
-
-  // Helper to turn arbitrary text into a regex‐safe pattern
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
   function escapeRegex(str) {
     return str.replace(/[-\/\\^$*+?.()|[\]{}]/g, "\\$&");
   }
 
-<<<<<<< HEAD
   const highlightPlagiarizedText = () => {
     let escapedContent = escapeForHtml(document.content || "");
 
-=======
-  // Highlight plagiarized text by wrapping matches in <span>
-  const highlightPlagiarizedText = () => {
-    let escapedContent = escapeForHtml(document.content || "");
-
-    // Sort matches by descending similarity
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
     const sortedMatches = [...(document.plagiarismData || [])].sort(
       (a, b) => b.similarity - a.similarity
     );
@@ -157,10 +112,6 @@ export default function DocumentAnalysisPage() {
     return { __html: escapedContent };
   };
 
-<<<<<<< HEAD
-=======
-  // Handle click on highlighted spans
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
   useEffect(() => {
     const handleClick = (e) => {
       const highlightedSpan = e.target.closest("span[data-id]");
@@ -191,10 +142,6 @@ export default function DocumentAnalysisPage() {
     };
   }, [document.plagiarismData]);
 
-<<<<<<< HEAD
-=======
-  // Summary helpers
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
   const totalMatches = Array.isArray(document.plagiarismData)
     ? document.plagiarismData.length
     : 0;
@@ -211,22 +158,13 @@ export default function DocumentAnalysisPage() {
             (sum, m) => sum + Number(m.similarity),
             0
           ) / totalMatches
-<<<<<<< HEAD
         ).toFixed(1)
       : "0.0";
-=======
-        ).toFixed(3)
-      : "0.000";
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-black to-gray-900 text-gray-300 py-44">
       <title>Plagiarism Report - SleuthInk</title>
-<<<<<<< HEAD
       <div className="max-w-7xl mx-auto px-6">
-=======
-      <div className="max-w-7xl mx-auto">
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
         <h1
           className={`${rw.className} text-3xl md:text-7xl text-center mb-20`}
         >
@@ -236,10 +174,6 @@ export default function DocumentAnalysisPage() {
           </span>
         </h1>
 
-<<<<<<< HEAD
-=======
-        {/* Header */}
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-3">
           <Link
             className={`${dmSans.className} flex items-center gap-2 text-purple-400 hover:text-purple-300`}
@@ -271,7 +205,6 @@ export default function DocumentAnalysisPage() {
           </div>
         </div>
 
-<<<<<<< HEAD
         <div className="flex flex-col lg:flex-row gap-4">
           <div className="lg:w-2/3 bg-gray-800 rounded-md border border-gray-700 p-6 overflow-scroll h-screen">
             {document.content ? (
@@ -288,22 +221,6 @@ export default function DocumentAnalysisPage() {
           </div>
 
           <div className="lg:w-1/3 bg-gray-800 rounded-md border border-gray-700 p-6 h-screen flex flex-col">
-=======
-        {/* Main Content */}
-        <div className="flex flex-col lg:flex-row gap-4">
-          {/* Document Viewer */}
-          <div className="lg:w-2/3 bg-gray-800 rounded-md border border-gray-700 p-6 overflow-scroll h-screen">
-            <div
-              ref={contentRef}
-              className={`${dmSans.className} leading-relaxed whitespace-pre-wrap`}
-              dangerouslySetInnerHTML={highlightPlagiarizedText()}
-            />
-          </div>
-
-          {/* Sources Panel */}
-          <div className="lg:w-1/3 bg-gray-800 rounded-md border border-gray-700 p-6 h-screen flex flex-col">
-            {/* Fixed Header */}
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
               <h2 className={`${dmSans.className} text-xl`}>Matched Sources</h2>
               <div className="flex gap-2">
@@ -334,17 +251,9 @@ export default function DocumentAnalysisPage() {
               </div>
             </div>
 
-<<<<<<< HEAD
             <div className="flex-1 overflow-y-auto">
               {selectedMatch ? (
                 <div className="space-y-4">
-=======
-            {/* Scrollable Content */}
-            <div className="flex-1 overflow-y-auto">
-              {selectedMatch ? (
-                <div className="space-y-4">
-                  {/* Selected Match Details */}
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
                   <div className="p-4 bg-gray-700 rounded-md border border-gray-600">
                     <h3 className={`${dmSans.className} text-lg mb-2`}>
                       Selected Text
@@ -360,13 +269,9 @@ export default function DocumentAnalysisPage() {
                     <h3 className={`${dmSans.className} text-lg mb-2`}>
                       Source
                     </h3>
-<<<<<<< HEAD
                     <p
                       className={`${dmSans.className} text-purple-400 mb-1 break-words`}
                     >
-=======
-                    <p className={`${dmSans.className} text-purple-400 mb-1`}>
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
                       {selectedMatch.source}
                     </p>
                     <a
@@ -393,7 +298,6 @@ export default function DocumentAnalysisPage() {
                               ? "bg-orange-500"
                               : "bg-yellow-500"
                           }`}
-<<<<<<< HEAD
                           style={{
                             width: `${Math.min(
                               selectedMatch.similarity,
@@ -404,13 +308,6 @@ export default function DocumentAnalysisPage() {
                       </div>
                       <span className={`${dmSans.className}`}>
                         {selectedMatch.similarity.toFixed(1)}%
-=======
-                          style={{ width: `${selectedMatch.similarity}%` }}
-                        ></div>
-                      </div>
-                      <span className={`${dmSans.className}`}>
-                        {selectedMatch.similarity}%
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
                       </span>
                     </div>
                     <p
@@ -439,7 +336,6 @@ export default function DocumentAnalysisPage() {
                 </div>
               ) : (
                 <div className="space-y-4">
-<<<<<<< HEAD
                   {document.plagiarismData &&
                   document.plagiarismData.length > 0 ? (
                     document.plagiarismData
@@ -492,61 +388,10 @@ export default function DocumentAnalysisPage() {
                       <p className="text-gray-400">No matches found</p>
                     </div>
                   )}
-=======
-                  {document.plagiarismData && document.plagiarismData.length > 0
-                    ? document.plagiarismData
-                        .filter((match) =>
-                          activeTab === "all"
-                            ? true
-                            : Number(match.similarity) > 70
-                        )
-                        .map((match, index) => (
-                          <div
-                            key={index}
-                            className={`p-4 rounded-md cursor-pointer hover:bg-gray-700 transition ${
-                              match.similarity > 75
-                                ? "border-l-4 border-red-500 bg-gray-750"
-                                : match.similarity > 50
-                                ? "border-l-4 border-orange-500 bg-gray-750"
-                                : "border-l-4 border-yellow-500 bg-gray-750"
-                            }`}
-                            onClick={() => setSelectedMatch(match)}
-                          >
-                            <div className="flex justify-between items-start mb-2">
-                              <h3
-                                className={`${dmSans.className} line-clamp-2`}
-                              >
-                                {match.text}
-                              </h3>
-                              <span
-                                className={`${dmSans.className} text-sm ${
-                                  match.similarity > 75
-                                    ? "text-red-400"
-                                    : match.similarity > 50
-                                    ? "text-orange-400"
-                                    : "text-yellow-400"
-                                }`}
-                              >
-                                {match.similarity}%
-                              </span>
-                            </div>
-                            <p
-                              className={`${dmSans.className} text-sm text-gray-400 line-clamp-1`}
-                            >
-                              {match.source}
-                            </p>
-                          </div>
-                        ))
-                    : null}
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
                 </div>
               )}
             </div>
 
-<<<<<<< HEAD
-=======
-            {/* Fixed Footer */}
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
             <div className="mt-auto pt-4">
               <div className="p-4 bg-gray-700 rounded-md border border-gray-600">
                 <h3
@@ -568,11 +413,7 @@ export default function DocumentAnalysisPage() {
                       Highest Similarity:
                     </span>
                     <span className={`${dmSans.className} text-red-400`}>
-<<<<<<< HEAD
                       {highestSimilarity.toFixed(1)}%
-=======
-                      {highestSimilarity}%
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
                     </span>
                   </div>
                   <div className="flex justify-between">

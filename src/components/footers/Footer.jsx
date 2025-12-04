@@ -1,9 +1,5 @@
 import { Berkshire_Swash } from "next/font/google";
-<<<<<<< HEAD
 import { DM_Sans, Playfair } from "next/font/google";
-=======
-import { DM_Sans } from "next/font/google";
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
 import Link from "next/link";
 import { BsTwitter, BsLinkedin, BsInstagram } from "react-icons/bs";
 
@@ -17,7 +13,6 @@ const dmSans_lighter = DM_Sans({
   weight: ["300"],
 });
 
-<<<<<<< HEAD
 const pf = Playfair({
   subsets: ["latin"],
   weight: ["300"],
@@ -31,16 +26,6 @@ export default function Footer() {
         >
           <div className="max-w-7xl mx-auto px-9 py-16 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
             {/* Brand Section */}
-=======
-export default function Footer() {
-  return (
-    <>
-      <div className=" bg-[#E4E4E4]">
-        <div
-          className={`${dmSans_lighter.className} w-full bg-black text-[#E4E4E4] `}
-        >
-          <div className="max-w-7xl mx-auto px-9 py-16 grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
             <div className="space-y-4">
               <h3 className={`${bs.className} text-4xl mb-4`}>SleuthInk</h3>
               <p className="text-lg">
@@ -49,7 +34,6 @@ export default function Footer() {
               </p>
             </div>
 
-<<<<<<< HEAD
             {/* Empty Column for spacing */}
             <div className=" space-y-4">
               <h4 className="text-2xl font-semibold">Our Vision</h4>
@@ -60,46 +44,6 @@ export default function Footer() {
             </div>
 
             {/* Legal Section */}
-=======
-            <div className="space-y-4">
-              <h4 className="text-2xl font-semibold">Quick Links</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link
-                    href="/about"
-                    className="hover:text-[#F8D56B] transition"
-                  >
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/features"
-                    className="hover:text-[#F8D56B] transition"
-                  >
-                    Features
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/pricing"
-                    className="hover:text-[#F8D56B] transition"
-                  >
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className="hover:text-[#F8D56B] transition"
-                  >
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
             <div className="space-y-4">
               <h4 className="text-2xl font-semibold">Legal</h4>
               <ul className="space-y-2">
@@ -130,16 +74,10 @@ export default function Footer() {
               </ul>
             </div>
 
-<<<<<<< HEAD
             {/* Connect Section */}
             <div className="space-y-4">
               <h4 className="text-2xl font-semibold">Connect With Us</h4>
               <div className="flex justify-start items-center space-x-4">
-=======
-            <div className="space-y-4">
-              <h4 className="text-2xl font-semibold">Connect With Us</h4>
-              <div className="flex justify-start items-center  space-x-4">
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
                 <Link href="#" className="hover:text-[#F8D56B] transition">
                   <BsTwitter />
                 </Link>
@@ -155,11 +93,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-<<<<<<< HEAD
       <div className="bg-[#E4E4E4] pt-0"></div>
-=======
-      <div className="bg-[#E4E4E4] pt-0 "></div>
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
     </>
   );
 }

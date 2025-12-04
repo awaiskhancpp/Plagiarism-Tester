@@ -6,10 +6,7 @@ import bcrypt from "bcrypt";
 import { z } from "zod";
 import "@/lib/mongodb";
 import jwt from "jsonwebtoken";
-<<<<<<< HEAD
 import settingsModel from "@/models/settings.model";
-=======
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
 
 export const authOptions = {
   session: { strategy: "jwt" },
@@ -92,7 +89,6 @@ export const authOptions = {
             { upsert: true, new: true }
           );
 
-<<<<<<< HEAD
           const existingSettings = await settingsModel.findOne({
             userId: dbUser._id,
           });
@@ -104,15 +100,12 @@ export const authOptions = {
             });
           }
 
-=======
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
           token.sub = dbUser._id.toString();
           token.role = dbUser.role;
           token.email = dbUser.email;
           token.name = dbUser.name;
           token.picture = dbUser.image;
         }
-<<<<<<< HEAD
         try {
           const settings = await settingsModel.findOne({ userId: token.sub });
           if (settings) {
@@ -137,8 +130,6 @@ export const authOptions = {
         } catch (error) {
           console.error("Error syncing settings on login:", error);
         }
-=======
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
       }
 
       // Handle session updates (when update() is called)
@@ -148,11 +139,8 @@ export const authOptions = {
           if (dbUser) {
             const oldRole = token.role;
             token.role = dbUser.role;
-<<<<<<< HEAD
             token.name = dbUser.name;
             token.email = dbUser.email;
-=======
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
           } else {
             console.log("JWT: No user found in DB for email:", token.email);
           }

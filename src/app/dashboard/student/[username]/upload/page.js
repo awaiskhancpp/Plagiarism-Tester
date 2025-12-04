@@ -28,7 +28,6 @@ const rw_bold = Raleway({
 
 async function postPlagiarismCheck(formData) {
   // no need to grab token—cookie is sent automatically
-<<<<<<< HEAD
   const response = await axios.post(
     "/api/v1/student/lexical-analysis",
     formData,
@@ -38,11 +37,6 @@ async function postPlagiarismCheck(formData) {
   );
   console.log(response.data);
 
-=======
-  const response = await axios.post("/api/report/check", formData, {
-    headers: { "Content-Type": "multipart/form-data" },
-  });
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
   return response.data;
 }
 
@@ -98,15 +92,12 @@ export default function UploadPage() {
       return;
     }
 
-<<<<<<< HEAD
     // Check if session exists
     if (!session || !session.user) {
       setError("Please log in to upload files");
       return;
     }
 
-=======
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
     setIsLoading(true);
     setError(null);
 
@@ -114,7 +105,6 @@ export default function UploadPage() {
       const formData = new FormData();
       formData.append("file", file);
 
-<<<<<<< HEAD
       // Upload the file
       const res = await postPlagiarismCheck(formData);
 
@@ -140,22 +130,6 @@ export default function UploadPage() {
       router.push(`/dashboard/student/${username}/report/${res.id}`);
     } catch (err) {
       console.error("Error:", err);
-=======
-      // 1) Upload the file to /check-plagiarism (with token in headers)
-      const res = await postPlagiarismCheck(formData);
-
-      localStorage.setItem("report", JSON.stringify(res));
-      console.log("saves");
-      setTimeout(() => {
-        router.push(
-          `/dashboard/student/${session.user.name
-            .toLowerCase()
-            .replace(" ", "-")}/report/${res.id}`
-        );
-      }, 10000);
-    } catch (err) {
-      console.error(err);
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
       setError("An error occurred during upload. Try again later.");
     } finally {
       setIsLoading(false);

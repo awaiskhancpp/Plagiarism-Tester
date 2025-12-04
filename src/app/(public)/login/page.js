@@ -53,7 +53,6 @@ export default function Login() {
             .split(" ")
             .join("-")}`
         );
-<<<<<<< HEAD
       } else if (session.user.role === "developer") {
         router.push(
           `/dashboard/developer/${session.user.name
@@ -64,11 +63,6 @@ export default function Login() {
       }
     }
   }, [status, session, router]);
-=======
-      }
-    }
-  }, [status, session]);
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
 
   useEffect(() => {
     setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0);
@@ -126,18 +120,13 @@ export default function Login() {
             .split(" ")
             .join("-")}`
         );
-<<<<<<< HEAD
       } else if (role === "student") {
-=======
-      } else {
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
         router.push(
           `/dashboard/student/${session.user.name
             .toLowerCase()
             .split(" ")
             .join("-")}`
         );
-<<<<<<< HEAD
       } else if (role === "developer") {
         router.push(
           `/dashboard/developer/${session.user.name
@@ -145,8 +134,6 @@ export default function Login() {
             .split(" ")
             .join("-")}`
         );
-=======
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
       }
     }
   };
@@ -202,17 +189,6 @@ export default function Login() {
             />
 
             <div>
-<<<<<<< HEAD
-=======
-              <p className="text-right text-sm mr-3 sm:text-base">
-                <Link
-                  href="/forgot-password"
-                  className="text-transparent bg-gradient-to-r bg-clip-text from-purple-200 to-purple-400 border-purple-300 border-b-[1px]"
-                >
-                  Forgot Password?
-                </Link>
-              </p>
->>>>>>> a745fc646b986d8962debdedd7bcabb5de6d2a64
               <input
                 name="password"
                 type="password"
